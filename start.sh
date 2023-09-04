@@ -7,4 +7,4 @@ jupyter lab \
     --port=$PORT \
     --no-browser \
     --NotebookApp.token=$JUPYTERLAB_TOKEN \
-    --NotebookApp.terminado_settings={'shell_command': ['/usr/bin/bash']}"
+    --NotebookApp.terminado_settings={'shell_command': ['/usr/bin/bash']}
