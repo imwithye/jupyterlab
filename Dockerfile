@@ -37,9 +37,11 @@ RUN pip install -r /tmp/requirements.txt
 SHELL ["/bin/bash", "-c"]
 WORKDIR $HOME
 USER $USERNAME
+RUN mkdir -p $HOME/Workspace
 
 ENV PORT=80
 EXPOSE 80
 ENV JUPYTERLAB_TOKEN=hello-jupyterlab
+ENV SHELL=/bin/bash
 COPY start.sh /
 CMD ["bash", "/start.sh"]
