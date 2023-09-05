@@ -25,7 +25,7 @@ RUN apt install -y build-essential cmake zsh git vim htop wget curl
 COPY install_miniconda.sh /tmp/
 USER $USERNAME
 RUN bash /tmp/install_miniconda.sh
-RUN /opt/miniconda3/bin/conda init
+RUN $HOME/.miniconda3/bin/conda init
 USER root
 
 # Install pip packages
