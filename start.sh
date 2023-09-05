@@ -1,5 +1,7 @@
 #!/bin/bash
 
+conda activate
+
 # fix permissions
 sudo chown jupyter:jupyter $HOME/Workspace
 

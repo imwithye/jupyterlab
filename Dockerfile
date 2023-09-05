@@ -21,21 +21,17 @@ RUN apt update
 # add default packages
 RUN apt install -y build-essential cmake zsh git vim htop wget curl
 
-# Install miniconda
+# Install python
 COPY install_miniconda.sh /tmp/
+COPY requirements.txt /tmp/
+
 USER $USERNAME
 RUN bash /tmp/install_miniconda.sh
-RUN $HOME/.miniconda3/bin/conda init
-USER root
+ENV PATH=$PATH:/opt/miniconda3/condabin:/opt/miniconda3/bin:$HOME/.local/bin
+RUN $HOME/.miniconda3/bin/conda init bash
+RUN $HOME/.miniconda3/bin/conda create -y -n dev python=3
+RUN $HOME/.miniconda3/bin/conda run -n dev pip install -r /tmp/requirements.txt
 
-# Install pip packages
-COPY requirements.txt /tmp/
-RUN pip install -r /tmp/requirements.txt
-
-# user mode
-SHELL ["/bin/bash", "-c"]
-WORKDIR $HOME
-USER $USERNAME
 RUN mkdir -p $HOME/Workspace
 
 ENV PORT=80
