@@ -5,6 +5,8 @@ ARG USERNAME=jupyter
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 ENV HOME=/home/$USERNAME
+ENV SHELL=/bin/bash
+SHELL ["/bin/bash", "-c"]
 
 # create the user
 RUN groupadd --gid $USER_GID $USERNAME \
@@ -37,6 +39,6 @@ RUN mkdir -p $HOME/Workspace
 ENV PORT=80
 EXPOSE 80
 ENV JUPYTERLAB_TOKEN=hello-jupyterlab
-ENV SHELL=/bin/bash
+
 COPY start.sh /
 CMD ["bash", "/start.sh"]

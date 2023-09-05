@@ -1,6 +1,7 @@
 #!/bin/bash
 
-conda activate
+source $HOME/.miniconda3/etc/profile.d/conda.sh
+conda activate dev
 
 # fix permissions
 sudo chown jupyter:jupyter $HOME/Workspace
