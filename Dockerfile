@@ -27,7 +27,7 @@ COPY requirements.txt /tmp/
 
 USER $USERNAME
 RUN bash /tmp/install_miniconda.sh
-ENV PATH=$PATH:/opt/miniconda3/condabin:/opt/miniconda3/bin:$HOME/.local/bin
+ENV PATH=$PATH:$HOME/.miniconda3/condabin:$HOME/.miniconda3/bin:$HOME/.local/bin
 RUN $HOME/.miniconda3/bin/conda init bash
 RUN $HOME/.miniconda3/bin/conda create -y -n dev python=3
 RUN $HOME/.miniconda3/bin/conda run -n dev pip install -r /tmp/requirements.txt
