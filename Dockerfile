@@ -23,11 +23,11 @@ RUN apt install -y build-essential cmake zsh git vim htop wget curl
 
 # Install miniconda
 COPY install_miniconda.sh /tmp/
-RUN bash /tmp/install_miniconda.sh
-ENV PATH=$PATH:/opt/miniconda3/condabin:/opt/miniconda3/bin:$HOME/.local/bin
 USER $USERNAME
+RUN bash /tmp/install_miniconda.sh
 RUN conda init
 USER root
+ENV PATH=$PATH:/opt/miniconda3/condabin:/opt/miniconda3/bin:$HOME/.local/bin
 
 # Install pip packages
 COPY requirements.txt /tmp/
