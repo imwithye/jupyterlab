@@ -34,6 +34,7 @@ RUN $HOME/.miniconda3/bin/conda init bash
 RUN $HOME/.miniconda3/bin/conda create -y -n dev python=3
 RUN $HOME/.miniconda3/bin/conda run -n dev pip install -r /tmp/requirements.txt
 
+RUN echo "conda activate dev" >> $HOME/.bashrc
 RUN mkdir -p $HOME/Workspace
 
 ENV PORT=80
