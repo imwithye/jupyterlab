@@ -4,10 +4,8 @@ services:
     command: caddy reverse-proxy --from $JUPYTERLAB_DOMAIN --to jupyterlab:8080
     depends_on:
       - jupyterlab
-    environment:
-      - DOMAIN=${JUPYTERLAB_DOMAIN}
   jupyterlab:
-    build: .
+    image: imwithye/jupyterlab
     environment:
       - PORT=8080
       - JUPYTERLAB_TOKEN=${JUPYTERLAB_TOKEN}
