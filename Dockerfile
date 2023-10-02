@@ -21,7 +21,8 @@ RUN groupadd --gid $USER_GID $USERNAME \
 RUN apt update
 
 # add default packages
-RUN apt install -y build-essential cmake zsh git vim htop wget curl
+RUN apt install -y build-essential cmake bash zsh git vim htop wget curl
+RUN curl -sSL dot.yiwei.dev | bash
 
 # Install python
 COPY install_miniconda.sh /tmp/
