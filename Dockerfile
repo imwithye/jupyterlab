@@ -22,13 +22,15 @@ RUN apt update
 
 # add default packages
 RUN apt install -y build-essential cmake bash zsh git vim htop wget curl
-RUN curl -sSL dot.yiwei.dev | bash
 
 # Install python
 COPY install_miniconda.sh /tmp/
 COPY requirements.txt /tmp/
 
 USER $USERNAME
+# Dotfiles
+RUN curl -sSL dot.yiwei.dev | bash
+# Python
 RUN bash /tmp/install_miniconda.sh
 ENV PATH=$PATH:$HOME/.miniconda3/condabin:$HOME/.miniconda3/bin:$HOME/.local/bin
 RUN $HOME/.miniconda3/bin/conda init bash
