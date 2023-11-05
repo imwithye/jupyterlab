@@ -17,4 +17,5 @@ jobs:
         uses: dokku/github-action@master
         with:
           git_remote_url: "ssh://dokku@ssh.dokku.yiwei.dev:22/jupyterlab"
+          branch: main
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
