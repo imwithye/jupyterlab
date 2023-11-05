@@ -1,5 +1,4 @@
 jupyterlab
-numba
 numpy
 pandas
 torch
